@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a web page, which displays the map of your country Link, each city /state on the image map, such that the respective HTML page of the city/state is displayed when the user selects an area</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+    <!-- Favicon config -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End of favicon config -->
+  </head>
+
+  <body class="line-numbers">
+    <header>
+      <div class="container">
+        <h1># Create a web page, which displays the map of your country Link, each city /state on the image map, such that the respective HTML page of the city/state is displayed when the user selects an area</h1>
+      </div>
+    </header>
+    <div class="container">
+      <section>
+        <img src="/assets/img/india-map.jpeg" alt="india_map" usemap="#india-map" width="50%" height="100%">
+        <map name="india-map">
+            <area target="_blank" alt="Rajasthan" title="Rajasthan" href="https://en.wikipedia.org/wiki/Rajasthan" coords="91,357,295,464" shape="rect">
+            <area target="_blank" alt="Karnataka" title="Karnataka" href="https://en.wikipedia.org/wiki/Karnataka" coords="262,859,56" shape="circle">
+            <area target="_blank" alt="Madhya_Pradesh" title="Madhya_Pradesh" href="https://en.wikipedia.org/wiki/Madhya_Pradesh" coords="345,520,93" shape="circle">
+            <area target="_blank" alt="Tamil_Nadu" title="Tamil_Nadu" href="https://en.wikipedia.org/wiki/Tamil_Nadu" coords="354,982,52" shape="circle">
+            <area target="_blank" alt="Uttar_Pradesh" title="Uttar_Pradesh" href="https://en.wikipedia.org/wiki/Uttar_Pradesh" coords="425,386,59" shape="circle">
+        </map>
+      </section>
+      <br />
+      <section>
+        <h1>Code</h1>
+        <pre><code class="language-html">&lt;img src=&quot;/assets/img/india-map.jpeg&quot; alt=&quot;india_map&quot; usemap=&quot;#india-map&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;
+&lt;map name=&quot;india-map&quot;&gt;
+    &lt;area target=&quot;_blank&quot; alt=&quot;Rajasthan&quot; title=&quot;Rajasthan&quot; href="https://en.wikipedia.org/wiki/Rajasthan&" coords=&quot;91,357,295,464&quot; shape=&quot;rect&quot;&gt;
+    &lt;area target=&quot;_blank&quot; alt=&quot;Karnataka&quot; title=&quot;Karnataka&quot; href=&quot;https://en.wikipedia.org/wiki/Karnataka&quot; coords=&quot;262,859,56&quot; shape=&quot;circle&quot;&gt;
+    &lt;area target=&quot;_blank&quot; alt=&quot;Madhya_Pradesh&quot; title=&quot;Madhya_Pradesh&quot; href=&quot;https://en.wikipedia.org/wiki/Madhya_Pradesh&quot; coords=&quot;345,520,93&quot; shape=&quot;circle&quot;&gt;
+    &lt;area target=&quot;_blank&quot; alt=&quot;Tamil_Nadu&quot; title=&quot;Tamil_Nadu&quot; href=&quot;https://en.wikipedia.org/wiki/Tamil_Nadu&quot; coords=&quot;354,982,52&quot; shape=&quot;circle&quot;&gt;
+    &lt;area target=&quot;_blank&quot; alt=&quot;Uttar_Pradesh&quot; title=&quot;Uttar_Pradesh&quot; href=&quot;https://en.wikipedia.org/wiki/Uttar_Pradesh&quot; coords=&quot;425,386,59&quot; shape=&quot;circle&quot;&gt;
+&lt;/map&gt;</code>
+        </pre>
+      </section>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/assets/js/prism.js"></script>
+  </body>
+</html>

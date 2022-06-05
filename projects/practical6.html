@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incorporate a quest book into the Diary Food Webpage and use Java Script to build validations into the form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/prism.css" />
+    <!-- Favicon config -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- End of favicon config -->
+</head>
+
+<body class="line-numbers">
+    <header>
+        <div class="container">
+            <h1># Incorporate a quest book into the Diary Food Webpage and use Java Script to build validations into the form</h1>
+        </div>
+    </header>
+    <div class="container">
+        <section>
+            <form name="register_form" onsubmit="return false">
+                <label for="name">Full Name</label>
+                <br />
+                <input type="text" id="name" placeholder="Full Name" autocomplete="off" />
+                <br />
+                <span class="error">
+                    <p id="name_error"></p>
+                </span>
+                <br />
+                <label for="email">Email :</label>
+                <br />
+                <input type="email" id="email" placeholder="Email" autocomplete="off" />
+                <br />
+                <span class="error">
+                    <p id="email_error"></p>
+                </span>
+                <br />
+                <label for="telephone">Telephone/Mobile :</label>
+                <br />
+                <input type="tel" id="telephone" placeholder="Telephone/Mobile" autocomplete="off" />
+                <br />
+                <span class="error">
+                    <p id="telephone_error"></p>
+                </span>
+                <br />
+                <label for="gender">Gender :</label>
+                <br />
+                <input type="radio" name="gender" value="male" /> Male
+                <input type="radio" name="gender" value="female" /> Female
+                <br />
+                <span class="error">
+                    <p id="gender_error"></p>
+                </span>
+                <br />
+                <label for="password">Password :</label>
+                <br />
+                <input type="password" id="password" placeholder="Password" autocomplete="off" />
+                <br />
+                <span class="error">
+                    <p id="password_error"></p>
+                </span>
+                <br />
+                <button type="submit" onclick="validate_form()">Submit</button>
+            </form>
+        </section>
+        <br />
+        <section>
+            <h1>html</h1>
+            <pre><code class="language-html">&lt;form name=&quot;register_form&quot; onsubmit=&quot;return false&quot;&gt;
+    &lt;label for=&quot;name&quot;&gt;Full Name&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;text&quot; id=&quot;name&quot; placeholder=&quot;Full Name&quot; autocomplete=&quot;off&quot; /&gt;
+    &lt;br /&gt;
+    &lt;span class=&quot;error&quot;&gt;
+        &lt;p id=&quot;name_error&quot;&gt;&lt;/p&gt;
+    &lt;/span&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;email&quot;&gt;Email :&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;email&quot; id=&quot;email&quot; placeholder=&quot;Email&quot; autocomplete=&quot;off&quot; /&gt;
+    &lt;br /&gt;
+    &lt;span class=&quot;error&quot;&gt;
+        &lt;p id=&quot;email_error&quot;&gt;&lt;/p&gt;
+    &lt;/span&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;telephone&quot;&gt;Telephone/Mobile :&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;tel&quot; id=&quot;telephone&quot; placeholder=&quot;Telephone/Mobile&quot; autocomplete=&quot;off&quot; /&gt;
+    &lt;br /&gt;
+    &lt;span class=&quot;error&quot;&gt;
+        &lt;p id=&quot;telephone_error&quot;&gt;&lt;/p&gt;
+    &lt;/span&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;gender&quot;&gt;Gender :&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot; /&gt; Male
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot; /&gt; Female
+    &lt;br /&gt;
+    &lt;span class=&quot;error&quot;&gt;
+        &lt;p id=&quot;gender_error&quot;&gt;&lt;/p&gt;
+    &lt;/span&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;password&quot;&gt;Password :&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;password&quot; id=&quot;password&quot; placeholder=&quot;Password&quot; autocomplete=&quot;off&quot; /&gt;
+    &lt;br /&gt;
+    &lt;span class=&quot;error&quot;&gt;
+        &lt;p id=&quot;password_error&quot;&gt;&lt;/p&gt;
+    &lt;/span&gt;
+    &lt;br /&gt;
+    &lt;button type=&quot;submit&quot; onclick=&quot;validate_form()&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code>
+        </pre>
+            <h1>js</h1>
+            <pre><code class="language-js">&lt;script src=&quot;https://unpkg.com/sweetalert/dist/sweetalert.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    function isNumeric(value) {
+        return /^-?\d+$/.test(value);
+    }
+    const validate_form = () =&gt; {
+        let names = [&quot;name&quot;, &quot;email&quot;, &quot;telephone&quot;, &quot;gender&quot;, &quot;password&quot;];
+        names.forEach(function (element) {
+                    document.getElementById(element + &quot;_error&quot;).textContent = &quot;&quot;;
+        });
+        let errorCount = 0;
+        names.forEach(function (element) {
+            if (element === &quot;telephone&quot;) {
+                let val = document.forms[&quot;register_form&quot;][element].value;
+                if(!isNumeric(val)){
+                    document.getElementById(element + &quot;_error&quot;).textContent = element.toUpperCase().replace(&quot;_&quot;, &quot; &quot;) + &quot; must be in number&quot;; ++errorCount
+                }
+                if(val.length !== 10){
+                    document.getElementById(element + &quot;_error&quot;).textContent = element.toUpperCase().replace(&quot;_&quot;, &quot; &quot;) + &quot; must be 10 digit&quot;; ++errorCount
+                }
+            }else if(element === &quot;password&quot;){
+                let val = document.forms[&quot;register_form&quot;][element].value;
+                if(val.length &lt;= 8){
+                    document.getElementById(element + &quot;_error&quot;).textContent = element.toUpperCase().replace(&quot;_&quot;, &quot; &quot;) + &quot; must be greater than 8 characters&quot;; ++errorCount
+                }
+            } else {
+                let val = document.forms[&quot;register_form&quot;][element].value;
+                if (val === null || val === &quot;&quot;) {
+                    document.getElementById(element + &quot;_error&quot;).textContent =
+                        element.toUpperCase().replace(&quot;_&quot;, &quot; &quot;) + &quot; must be filled out&quot;;
+                        ++errorCount;
+                }
+            }
+        });
+        if(errorCount){
+            return false
+        }else{
+            swal(&quot;Submitted SuccessFully!&quot;, &quot;Your form successfully submitted!&quot;, &quot;success&quot;)
+            document.forms[&quot;register_form&quot;].reset();
+        }
+    };
+&lt;/script&gt;</code>
+        </pre>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="/assets/js/prism.js"></script>
+    <script>
+        function isNumeric(value) {
+            return /^-?\d+$/.test(value);
+        }
+        const validate_form = () => {
+            let names = ["name", "email", "telephone", "gender", "password"];
+            names.forEach(function (element) {
+                        document.getElementById(element + "_error").textContent = "";
+            });
+            let errorCount = 0;
+            names.forEach(function (element) {
+                if (element === "telephone") {
+                    let val = document.forms["register_form"][element].value;
+                    if(!isNumeric(val)){
+                        document.getElementById(element + "_error").textContent = element.toUpperCase().replace("_", " ") + " must be in number"; ++errorCount
+                    }
+                    if(val.length !== 10){
+                        document.getElementById(element + "_error").textContent = element.toUpperCase().replace("_", " ") + " must be 10 digit"; ++errorCount
+                    }
+                }else if(element === "password"){
+                    let val = document.forms["register_form"][element].value;
+                    if(val.length <= 8){
+                        document.getElementById(element + "_error").textContent = element.toUpperCase().replace("_", " ") + " must be greater than 8 characters"; ++errorCount
+                    }
+                } else {
+                    let val = document.forms["register_form"][element].value;
+                    if (val === null || val === "") {
+                        document.getElementById(element + "_error").textContent =
+                            element.toUpperCase().replace("_", " ") + " must be filled out";
+                            ++errorCount;
+                    }
+                }
+            });
+            if(errorCount){
+                return false
+            }else{
+                swal("Submitted SuccessFully!", "Your form successfully submitted!", "success")
+                document.forms["register_form"].reset();
+            }
+        };
+    </script>
+</body>
+
+</html>
